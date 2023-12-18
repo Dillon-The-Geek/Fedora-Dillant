@@ -24,6 +24,8 @@ echo "fastestmirror=True" >> dnf.txt
 
 echo "defaultyes=True" >> dnf.txt 
 
+sudo mv dnf.txt dnf.conf
+
 sudo rm /etc/dnf/dnf.conf
 
 sudo mv dnf.conf /etc/dnf/
