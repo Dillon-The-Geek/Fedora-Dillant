@@ -1,7 +1,6 @@
 # Fedora-Dillant(Important must read)
 
-it must be in your home directory. and you must give it executable perminissions with the\n 
-command: chmod +x fedora-dillant.sh
+it must be in your home directory. and you must give it executable perminissions with the command: chmod +x fedora-dillant.sh
 
 
 ## Things the script can't change ##
