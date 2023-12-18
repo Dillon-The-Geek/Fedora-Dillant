@@ -72,7 +72,7 @@ if [[ $chosen_browser == "brave" ]]; then
 
 	sudo dnf config-manager --add-repo https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo -y
 
-	sudo rpm --import https://brave-browser-rpm-release.s3.brave.com/brave-core.asc -y
+	sudo rpm --import https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
 
 	sudo dnf install brave-browser -y
 elif [[ $chosen_browser == "chromium" ]]; then
