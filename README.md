@@ -6,3 +6,8 @@ it must be in your home directory. and you must give it executable perminissions
 command: chmod +x fedora-dillant.sh
 
 
+## Things the script can't change ##
+
+
+
+
