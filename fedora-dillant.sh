@@ -1,21 +1,5 @@
 #!/bin/bash
 
-#config dnf
-
-sudo cp /etc/dnf/dnf.conf ~/dnf.conf
-
-mv dnf.conf dnf.txt
-
-echo "max_parallel_downloads=10" >> dnf.txt
-echo "fastestmirror=True" >> dnf.txt
-echo "defaultyes=True" >> dnf.txt
-
-mv dnf.txt dnf.conf
-
-sudo rm /etc/dnf/dnf.conf
-
-mv dnf.conf /etc/dnf/
-
 #download and set wallpaper
 
 wget "https://w.wallhaven.cc/full/zy/wallhaven-zy2x7v.png"
