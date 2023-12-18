@@ -2,6 +2,26 @@
 
 #By Dillon King
 
+#apply dnf config
+
+cp /etc/dnf/dnf.conf ~/
+
+mv dnf.conf dnf.txt
+
+echo "   " >> dnf.txt
+
+echo "#for speed" >> dnf.txt
+
+echo "max_parallel_downloads=10" >> dnf.txt 
+
+echo "fastestmirror=True" >> dnf.txt
+
+echo "defaultyes=True" >> dnf.txt 
+
+sudo rm /etc/dnf/dnf.conf
+
+sudo mv dnf.conf /etc/dnf/
+
 #update system
 
 sudo dnf update -y
@@ -102,4 +122,4 @@ sudo dnf install neofetch -y
 
 echo "neofetch" >> .bashrc
 
-
+reboot
