@@ -40,6 +40,8 @@ gsettings set org.gnome.desktop.background picture-uri file:///home/$USER/Pictur
 
 #enable dark mode 
 
+gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+
 #enable rpm fusion
 
 sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm -y
