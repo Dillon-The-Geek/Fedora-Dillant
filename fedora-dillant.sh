@@ -1,5 +1,13 @@
 #!/bin/bash
 
+#By Dillon King
+
+#update system
+
+sudo dnf update -y
+
+sudo dnf upgrade -y
+
 #download and set wallpaper
 
 wget "https://w.wallhaven.cc/full/zy/wallhaven-zy2x7v.png"
@@ -10,30 +18,51 @@ gsettings set org.gnome.desktop.background picture-uri file:///home/$USER/Pictur
 
 #enable rpm fusion
 
-sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm -y
 
-sudo dnf config-manager --enable fedora-cisco-openh264
+sudo dnf config-manager --enable fedora-cisco-openh264 -y
 
-#install brave 
+#install web browser
 
+echo "What Web browser would you like?
+1 - brave
+2 - chromium"
 
-sudo dnf install dnf-plugins-core
+read browser
 
-sudo dnf config-manager --add-repo https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
+case $browser in
 
-sudo rpm --import https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
+	1)
+		chosen_browser="brave"
+		;;
+	
+	2)
+		chosen_browser="chromium"
+		;;
+esac
 
-sudo dnf install brave-browser
+if [[ $chosen_browser == "brave" ]]; then
+	sudo dnf install dnf-plugins-core -y
+
+	sudo dnf config-manager --add-repo https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo -y
+
+	sudo rpm --import https://brave-browser-rpm-release.s3.brave.com/brave-core.asc -y
+
+	sudo dnf install brave-browser -y
+elif [[ $chosen_browser == "chromium" ]]; then
+	sudo dnf install chromium -y
+fi
+
 
 #install media apps
 
-sudo dnf install discord
+sudo dnf install discord -y
 
-sudo dnf install obs-studio
+sudo dnf install obs-studio -y
 
 #install flatpak and add flathub 
 
-sudo dnf install flatpak
+sudo dnf install flatpak -y
 
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo    
 
@@ -41,21 +70,21 @@ flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.f
 
 #spotify
 
-flatpak install flathub com.spotify.Client
+flatpak install flathub com.spotify.Client -y
 
 #timeshift
 
-sudo dnf install timeshift
+sudo dnf install timeshift -y
 
 #gaming
 
-sudo dnf install steam
+sudo dnf install steam -y
 
-sudo dnf install lutris
+sudo dnf install lutris -y
 
-sudo dnf install mangohud
+sudo dnf install mangohud -y
 
-sudo dnf install goverlay
+sudo dnf install goverlay -y
 
 #shotcut
 
@@ -63,11 +92,13 @@ mkdir AppImages
 
 wget "https://sourceforge.net/projects/shotcut/files/v23.12.15/shotcut-linux-x86_64-231215.AppImage/download"
 
-mv shotcut-linux-x86_64-231215.AppImage ~/AppImages
+chmod +x download
+
+mv download AppImages/
 
 #neofetch
 
-sudo dnf install neofetch
+sudo dnf install neofetch -y
 
 echo "neofetch" >> .bashrc
 
