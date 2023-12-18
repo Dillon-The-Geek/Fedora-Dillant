@@ -2,6 +2,12 @@
 
 #By Dillon King
 
+#update system
+
+sudo dnf update -y
+
+sudo dnf upgrade -y
+
 #apply dnf config
 
 cp /etc/dnf/dnf.conf ~/
@@ -21,12 +27,6 @@ echo "defaultyes=True" >> dnf.txt
 sudo rm /etc/dnf/dnf.conf
 
 sudo mv dnf.conf /etc/dnf/
-
-#update system
-
-sudo dnf update -y
-
-sudo dnf upgrade -y
 
 #download and set wallpaper
 
