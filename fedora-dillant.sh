@@ -38,6 +38,8 @@ mv wallhaven-zy2x7v.png ~/Pictures/
 
 gsettings set org.gnome.desktop.background picture-uri file:///home/$USER/Pictures/wallhaven-zy2x7v.png
 
+#enable dark mode 
+
 #enable rpm fusion
 
 sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm -y
