@@ -49,8 +49,6 @@ sleep 1
 
 #update system
 
-sudo dnf update -y
-
 sudo dnf upgrade -y
 
 #message
