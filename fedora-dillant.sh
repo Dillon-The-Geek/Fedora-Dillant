@@ -10,6 +10,7 @@ if [[ $path == "/home/$USER" ]]; then
 	echo "running the script"
 else
 	echo "this script must be in your home folder"
+	break
 fi 
 
 
