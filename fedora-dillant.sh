@@ -2,6 +2,17 @@
 
 #By Dillon King
 
+#check they are in home directory
+
+path=$(pwd)
+
+if [[ $path == "/home/$USER" ]]; then
+	echo "running the script"
+else
+	echo "this script must be in your home folder"
+fi 
+
+
 #apple dnf config
 
 cp /etc/dnf/dnf.conf ~/
