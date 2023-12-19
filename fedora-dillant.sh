@@ -10,7 +10,7 @@ if [[ $path == "/home/$USER" ]]; then
 	echo "running the script"
 else
 	echo "this script must be in your home folder"
-	break
+	exit 1
 fi 
 
 
@@ -48,7 +48,7 @@ wget "https://w.wallhaven.cc/full/zy/wallhaven-zy2x7v.png"
 
 mv wallhaven-zy2x7v.png ~/Pictures/
 
-gsettings set org.gnome.desktop.background picture-uri file:///home/$USER/Pictures/wallhaven-zy2x7v.png
+gsettings set org.gnome.desktop.background picture-uri-dark file:///home/$USER/Pictures/wallhaven-zy2x7v.png
 
 #enable dark mode 
 
