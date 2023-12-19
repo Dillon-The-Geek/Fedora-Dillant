@@ -13,8 +13,11 @@ else
 	exit 1
 fi 
 
+echo "####################"
+echo "# Making dnf Faster#"
+echo "####################"
 
-#apple dnf config
+#apply dnf config
 
 cp /etc/dnf/dnf.conf ~/
 
@@ -36,11 +39,28 @@ sudo rm /etc/dnf/dnf.conf
 
 sudo mv dnf.conf /etc/dnf/
 
+#message
+
+echo "#######################"
+echo "# Updating the system #"
+echo "#######################"
+
+sleep 1
+
 #update system
 
 sudo dnf update -y
 
 sudo dnf upgrade -y
+
+#message
+
+echo "###############################"
+echo "# Setting wallpaper and Theme #"
+echo "###############################"
+
+sleep 1
+
 
 #download and set wallpaper
 
@@ -54,11 +74,28 @@ gsettings set org.gnome.desktop.background picture-uri-dark file:///home/$USER/P
 
 gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
 
+#message
+
+echo "#######################"
+echo "# Enabling RPM Fusion #"
+echo "#######################"
+
+sleep 1
+
+
 #enable rpm fusion
 
 sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm -y
 
 sudo dnf config-manager --enable fedora-cisco-openh264 -y
+
+#message
+
+echo "##########################"
+echo "# Installing Web Browser #"
+echo "##########################"
+
+sleep 1
 
 #install web browser
 
@@ -91,20 +128,35 @@ elif [[ $chosen_browser == "chromium" ]]; then
 	sudo dnf install chromium -y
 fi
 
+#message
+
+echo "##################################"
+echo "# Installing flatpak and flathub #"
+echo "##################################"
+
+sleep 1
+
+
+#install flatpak and add flathub 
+
+sudo dnf install flatpak -y
+
+flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo  
+
+#message
+
+echo "###################"
+echo "# Installing Apps #"
+echo "###################"
+
+sleep 1
+
 
 #install media apps
 
 sudo dnf install discord -y
 
 sudo dnf install obs-studio -y
-
-#install flatpak and add flathub 
-
-sudo dnf install flatpak -y
-
-flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo    
-
- 
 
 #spotify
 
@@ -133,6 +185,15 @@ wget "https://sourceforge.net/projects/shotcut/files/v23.12.15/shotcut-linux-x86
 chmod +x download
 
 mv download AppImages/
+
+#message
+
+echo "##########################"
+echo "# Setting Up Neofetch #"
+echo "##########################"
+
+sleep 1
+
 
 #neofetch
 
