@@ -152,13 +152,14 @@ sleep 1
 
 #install media apps
 
-sudo dnf install discord -y
 
 sudo dnf install obs-studio -y
 
-#spotify
+#spotify and discord
 
 flatpak install flathub com.spotify.Client -y
+
+flatpak install flathub com.discordapp.Discord -y
 
 #timeshift
 
