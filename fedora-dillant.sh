@@ -208,4 +208,19 @@ sudo dnf install neofetch -y
 
 echo "neofetch" >> .bashrc
 
+
+#message
+
+echo "##########################"
+echo "#   Setting Up Firewall  #"
+echo "##########################"
+
+sleep 1
+
+#setup Firewall
+
+sudo dnf install ufw -y
+
+sudo systemctl enable ufw.service --now
+
 reboot
