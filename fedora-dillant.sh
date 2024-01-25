@@ -193,6 +193,10 @@ chmod +x download
 
 mv download AppImages/
 
+cd AppImages
+
+mv download shotcut
+
 #message
 
 echo "##########################"
