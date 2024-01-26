@@ -156,6 +156,41 @@ echo "#################################"
 
 sleep 1
 
+#installing desktop enviremont
+
+echo "What desktop enviremont would you like?
+1 - Gnome(default)
+2 - KDE Plasma
+3 - Cinnimon"
+
+read desktop
+
+case $desktop in
+
+	1)
+		chosen_desktop="gnome"
+		;;
+
+	2)
+		chosen_desktop="kde"
+		;;
+
+	3)
+		chosen_desktop="cinnimon"
+		;;
+esac
+
+if [[ $chosen_desktop == "gnome" ]]; then
+	pass
+elif [[ $chosen_desktop = "kde" ]]; then
+	sudo dnf install @kde-desktop -y
+	sudo systemctl set-default graphical.target
+	sudo systemctl disable gdm
+	sudo systemctl enable sddm
+elif [[ $chosen_desktop == "cinnimon" ]]; then
+	sudo dnf group install "Cinnamon Desktop"
+fi
+
 #message installing apps
 
 echo "###################"
