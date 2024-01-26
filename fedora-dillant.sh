@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#By Dillon King test if this is only on testing branch
+#By Dillon-The-Geek
 
 #check they are in home directory
 
@@ -131,6 +131,7 @@ case $browser in
 	3)
 		chosen_browser="floorp"
 		;;
+
 esac
 
 if [[ $chosen_browser == "brave" ]]; then
@@ -143,8 +144,8 @@ if [[ $chosen_browser == "brave" ]]; then
 	sudo dnf install brave-browser -y
 elif [[ $chosen_browser == "chromium" ]]; then
 	sudo dnf install chromium -y
-elif [[ $chosen_browser == "floorp"]]; then
-	flatpak install flathub one.ablaze.floorp
+elif [[ $chosen_browser == "floorp" ]]; then
+	flatpak install flathub one.ablaze.floorp -y
 fi
 
  
@@ -155,6 +156,35 @@ echo "# Installing Desktop Enviremont #"
 echo "#################################"
 
 sleep 1
+
+#installing desktop enviremont
+
+echo "What desktop enviremont would you like?
+1 - Gnome(default)
+2 - KDE Plasma"
+
+read desktop
+
+case $desktop in
+
+	1)
+		chosen_desktop="gnome"
+		;;
+
+	2)
+		chosen_desktop="kde"
+		;;
+
+esac
+
+if [[ $chosen_desktop == "gnome" ]]; then
+	echo "Keeping gnome"
+elif [[ $chosen_desktop = "kde" ]]; then
+	sudo dnf install @kde-desktop -y
+	sudo systemctl set-default graphical.target
+	sudo systemctl disable gdm
+	sudo systemctl enable sddm
+fi
 
 #message installing apps
 
