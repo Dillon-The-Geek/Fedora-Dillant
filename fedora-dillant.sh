@@ -161,8 +161,7 @@ sleep 1
 
 echo "What desktop enviremont would you like?
 1 - Gnome(default)
-2 - KDE Plasma
-3 - Cinnimon"
+2 - KDE Plasma"
 
 read desktop
 
@@ -176,9 +175,6 @@ case $desktop in
 		chosen_desktop="kde"
 		;;
 
-	3)
-		chosen_desktop="cinnimon"
-		;;
 esac
 
 if [[ $chosen_desktop == "gnome" ]]; then
@@ -188,9 +184,6 @@ elif [[ $chosen_desktop = "kde" ]]; then
 	sudo systemctl set-default graphical.target
 	sudo systemctl disable gdm
 	sudo systemctl enable sddm
-elif [[ $chosen_desktop == "cinnimon" ]]; then
-	dnf grouplist -v
-	sudo dnf install @cinnamon-desktop-environment
 fi
 
 #message installing apps
