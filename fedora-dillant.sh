@@ -39,7 +39,7 @@ sudo rm /etc/dnf/dnf.conf
 
 sudo mv dnf.conf /etc/dnf/
 
-#message
+#message updating
 
 echo "#######################"
 echo "# Updating the system #"
@@ -51,7 +51,7 @@ sleep 1
 
 sudo dnf upgrade -y
 
-#message
+#message wallpaper and theme
 
 echo "###############################"
 echo "# Setting wallpaper and Theme #"
@@ -72,7 +72,7 @@ gsettings set org.gnome.desktop.background picture-uri-dark file:///home/$USER/P
 
 gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
 
-#message
+#message enabling rpm fusion
 
 echo "#######################"
 echo "# Enabling RPM Fusion #"
@@ -87,7 +87,7 @@ sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-releas
 
 sudo dnf config-manager --enable fedora-cisco-openh264 -y
 
-#message
+#message install flatpak and flathub
 
 echo "##################################"
 echo "# Installing flatpak and flathub #"
@@ -101,7 +101,7 @@ sudo dnf install flatpak -y
 
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo 
 
-#message
+#message installing web browser
 
 echo "##########################"
 echo "# Installing Web Browser #"
@@ -148,8 +148,50 @@ elif [[ $chosen_browser == "floorp"]]; then
 fi
 
  
+#message installing desktop enviremont
 
-#message
+echo "#################################"
+echo "# Installing Desktop Enviremont #"
+echo "#################################"
+
+sleep 1
+
+#installing desktop enviremont
+
+echo "What desktop enviremont would you like?
+1 - Gnome(default)
+2 - KDE Plasma
+3 - Cinnimon"
+
+read desktop
+
+case $desktop in
+	
+	1)
+		chosen_desktop="gnome"
+		;;
+
+	2)
+		chosen_desktop="kde"
+		;;
+
+	3)
+		chosen_desktop="cinnimon"
+		;;
+esac
+
+if [[ $chosen_desktop == "gnome" ]]; then
+	pass
+elif [[ $chosen_desktop = "kde" ]]; then
+	sudo dnf install @kde-desktop -y
+	sudo systemctl set-default graphical.target
+	sudo systemctl disable gdm
+	sudo systemctl enable sddm
+elif [[ $chosen_desktop == "cinnimon" ]]; then
+	sudo dnf group install "Cinnamon Desktop"
+fi
+
+#message installing apps
 
 echo "###################"
 echo "# Installing Apps #"
@@ -197,10 +239,10 @@ cd AppImages
 
 mv download shotcut
 
-#message
+#message setting up neofetch
 
 echo "##########################"
-echo "# Setting Up Neofetch #"
+echo "#   Setting Up Neofetch  #"
 echo "##########################"
 
 sleep 1
@@ -213,7 +255,7 @@ sudo dnf install neofetch -y
 echo "neofetch" >> .bashrc
 
 
-#message
+#message setting up firewall
 
 echo "##########################"
 echo "#   Setting Up Firewall  #"
@@ -226,5 +268,15 @@ sleep 1
 sudo dnf install ufw -y
 
 sudo systemctl enable ufw.service --now
+
+#message script complete
+
+echo "##########################"
+echo "#   Script Complete      #"
+echo "##########################"
+
+echo "##########################"
+echo "#      Rebooting now     #"
+echo "##########################"
 
 reboot
