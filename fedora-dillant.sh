@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#By Dillon King test if this is only on testing branch
+#By Dillon-The-Geek
 
 #check they are in home directory
 
