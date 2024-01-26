@@ -131,6 +131,7 @@ case $browser in
 	3)
 		chosen_browser="floorp"
 		;;
+		
 esac
 
 if [[ $chosen_browser == "brave" ]]; then
