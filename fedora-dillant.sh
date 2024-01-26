@@ -145,7 +145,7 @@ if [[ $chosen_browser == "brave" ]]; then
 elif [[ $chosen_browser == "chromium" ]]; then
 	sudo dnf install chromium -y
 elif [[ $chosen_browser == "floorp" ]]; then
-	flatpak install flathub one.ablaze.floorp
+	flatpak install flathub one.ablaze.floorp -y
 fi
 
  
@@ -178,7 +178,7 @@ case $desktop in
 esac
 
 if [[ $chosen_desktop == "gnome" ]]; then
-	pass
+	echo "Keeping gnome"
 elif [[ $chosen_desktop = "kde" ]]; then
 	sudo dnf install @kde-desktop -y
 	sudo systemctl set-default graphical.target
