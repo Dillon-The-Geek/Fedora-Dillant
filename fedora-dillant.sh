@@ -131,7 +131,7 @@ case $browser in
 	3)
 		chosen_browser="floorp"
 		;;
-		
+
 esac
 
 if [[ $chosen_browser == "brave" ]]; then
@@ -144,7 +144,7 @@ if [[ $chosen_browser == "brave" ]]; then
 	sudo dnf install brave-browser -y
 elif [[ $chosen_browser == "chromium" ]]; then
 	sudo dnf install chromium -y
-elif [[ $chosen_browser == "floorp"]]; then
+elif [[ $chosen_browser == "floorp" ]]; then
 	flatpak install flathub one.ablaze.floorp
 fi
 
