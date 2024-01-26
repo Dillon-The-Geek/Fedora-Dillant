@@ -189,6 +189,7 @@ elif [[ $chosen_desktop = "kde" ]]; then
 	sudo systemctl disable gdm
 	sudo systemctl enable sddm
 elif [[ $chosen_desktop == "cinnimon" ]]; then
+	dnf grouplist -v
 	sudo dnf install @cinnamon-desktop-environment
 fi
 
