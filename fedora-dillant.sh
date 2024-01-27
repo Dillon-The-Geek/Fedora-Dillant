@@ -2,6 +2,8 @@
 
 #By Dillon-The-Geek
 
+cd
+
 #check they are in home directory
 
 path=$(pwd)
@@ -194,6 +196,11 @@ echo "###################"
 
 sleep 1
 
+#programming
+
+
+flatpak install flathub com.visualstudio.code -y
+
 
 #install media apps
 
@@ -233,6 +240,12 @@ mv download AppImages/
 cd AppImages
 
 mv download shotcut
+
+#disk
+
+sudo dnf install gparted -y
+
+
 
 #message setting up neofetch
 
