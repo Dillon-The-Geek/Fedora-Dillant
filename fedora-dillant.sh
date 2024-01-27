@@ -2,6 +2,8 @@
 
 #By Dillon-The-Geek
 
+cd
+
 #check they are in home directory
 
 path=$(pwd)
