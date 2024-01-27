@@ -1,7 +1,6 @@
 # Fedora-Dillant(Important must read)
 
-it must be in your home directory.
-AND you must have systemd which ships with Fedora by default.
+You must have systemd which ships with Fedora by default.
 
 ## Things the script can't change ##
 
