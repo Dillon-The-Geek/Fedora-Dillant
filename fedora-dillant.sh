@@ -260,8 +260,6 @@ sleep 1
 
 sudo dnf install neofetch -y
 
-echo "neofetch" >> .bashrc
-
 
 #message setting up firewall
 
