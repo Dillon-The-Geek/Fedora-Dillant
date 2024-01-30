@@ -64,11 +64,11 @@ sleep 1
 
 #download and set wallpaper
 
-wget "https://w.wallhaven.cc/full/zy/wallhaven-zy2x7v.png"
+cd ~/Fedora-Dillant/background/
 
-mv wallhaven-zy2x7v.png ~/Pictures/
+mv fedoradillant.png ~/Pictures/
 
-gsettings set org.gnome.desktop.background picture-uri-dark file:///home/$USER/Pictures/wallhaven-zy2x7v.png
+gsettings set org.gnome.desktop.background picture-uri-dark file:///home/$USER/Pictures/fedoradillant.png
 
 #enable dark mode 
 
@@ -148,45 +148,7 @@ elif [[ $chosen_browser == "chromium" ]]; then
 	sudo dnf install chromium -y
 elif [[ $chosen_browser == "floorp" ]]; then
 	flatpak install flathub one.ablaze.floorp -y
-fi
-
- 
-#message installing desktop enviremont
-
-echo "#################################"
-echo "# Installing Desktop Enviremont #"
-echo "#################################"
-
-sleep 1
-
-#installing desktop enviremont
-
-echo "What desktop enviremont would you like?
-1 - Gnome(default)
-2 - KDE Plasma"
-
-read desktop
-
-case $desktop in
-
-	1)
-		chosen_desktop="gnome"
-		;;
-
-	2)
-		chosen_desktop="kde"
-		;;
-
-esac
-
-if [[ $chosen_desktop == "gnome" ]]; then
-	echo "Keeping gnome"
-elif [[ $chosen_desktop = "kde" ]]; then
-	sudo dnf install @kde-desktop -y
-	sudo systemctl set-default graphical.target
-	sudo systemctl disable gdm
-	sudo systemctl enable sddm
-fi
+fi	
 
 #message installing apps
 
@@ -198,9 +160,11 @@ sleep 1
 
 #programming
 
+mkdir rpm
 
-flatpak install flathub com.visualstudio.code -y
+wget "https://github.com/VSCodium/vscodium/releases/download/1.85.2.24019/codium-1.85.2.24019-el7.x86_64.rpm"
 
+sudo rpm -i codium-1.85.2.24019-el7.x86_64.rpm
 
 #install media apps
 
