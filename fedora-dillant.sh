@@ -166,6 +166,10 @@ wget "https://github.com/VSCodium/vscodium/releases/download/1.85.2.24019/codium
 
 sudo rpm -i codium-1.85.2.24019-el7.x86_64.rpm
 
+#install extensions app
+
+flatpak install flathub com.mattjakeman.ExtensionManager
+
 #install media apps
 
 
