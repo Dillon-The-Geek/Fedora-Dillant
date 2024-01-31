@@ -56,23 +56,53 @@ sudo dnf upgrade -y
 #message wallpaper and theme
 
 echo "###############################"
-echo "# Setting wallpaper and Theme #"
+echo "#       installing desktop    #"
 echo "###############################"
 
 sleep 1
 
+#installing desktop
 
-#download and set wallpaper
+sudo dnf install awesome -y
+sudo dnf install rofi -y
+sudo dnf install brightnessctl -y
+sudo dnf install acpi -y
+sudo dnf install lxappearance -y
+sudo dnf install conky -y
+sudo dnf install xcompmgs -y
+sudo dnf install nitrogen -y
 
-cd ~/Fedora-Dillant/background/
+git clone https://gitlab.com/dillant/dotfiles.git
+git clone https://gitlab.com/dillant/wallpapers.git
 
-mv fedoradillant.png ~/Pictures/
+cd dotfiles
 
-gsettings set org.gnome.desktop.background picture-uri-dark file:///home/$USER/Pictures/fedoradillant.png
+mv cp -r awesome/ ~/.config/ 
 
-#enable dark mode 
+rm -rf ~/.themes
 
-gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+rm -rf ~/.icons
+
+cp -r .themes/ ~/
+cp -r .icons/ ~/
+
+cd 
+
+echo "[Settings]
+gtk-theme-name=gtk-master
+gtk-icon-theme-name=Dracula
+gtk-font-name=Sans 10
+gtk-cursor-theme-name=Adwaita
+gtk-cursor-theme-size=0
+gtk-toolbar-style=GTK_TOOLBAR_BOTH
+gtk-toolbar-icon-size=GTK_ICON_SIZE_LARGE_TOOLBAR
+gtk-button-images=0
+gtk-menu-images=0
+gtk-enable-event-sounds=1
+gtk-enable-input-feedback-sounds=1
+gtk-xft-antialias=1
+gtk-xft-hinting=1
+gtk-xft-hintstyle=hintmedium" > ~/.config/gtk-3.0/settings.ini
 
 #message enabling rpm fusion
 
@@ -248,6 +278,8 @@ sudo systemctl enable ufw.service --now
 echo "##########################"
 echo "#   Script Complete      #"
 echo "##########################"
+
+sleep 1
 
 echo "##########################"
 echo "#      Rebooting now     #"
